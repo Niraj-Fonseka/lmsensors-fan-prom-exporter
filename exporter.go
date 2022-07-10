@@ -47,9 +47,7 @@ func (c *FanCollector) getFanMetrics() map[string]float64 {
 
 	metrics := make(map[string]float64, 0)
 	for chip := range sensors.Chips {
-		// Iterate over entries
 		for key, value := range sensors.Chips[chip] {
-			// If CPU or GPU, print out
 			if strings.Contains(key, "fan") {
 				spllitted := strings.Split(value, " ")
 				rpm, err := strconv.ParseFloat(spllitted[0], 64)
